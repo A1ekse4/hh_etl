@@ -1,12 +1,3 @@
-"""
-Airflow DAG: HH.ru ELT Pipeline
-
-Запускает основной ноутбук hh_etl.ipynb через papermill.
-Выходной (параметризованный) ноутбук сохраняется в /tmp/ для аудита.
-
-Зависимости: papermill (pip install papermill)
-"""
-
 from __future__ import annotations
 
 import os
@@ -43,7 +34,7 @@ def run_etl_notebook(**context) -> None:
     pm.execute_notebook(
         str(NOTEBOOK_PATH),
         str(output_path),
-        parameters={},          # параметры можно передавать при необходимости
+        parameters={},
         kernel_name="python3",
         log_output=True,
     )
@@ -52,7 +43,7 @@ def run_etl_notebook(**context) -> None:
 with DAG(
     dag_id="hh_etl",
     description="Инкрементальная загрузка вакансий с hh.ru в PostgreSQL",
-    schedule="0 6 * * *",          # каждый день в 06:00 UTC
+    schedule="0 6 * * *",
     start_date=pendulum.datetime(2026, 1, 1, tz="UTC"),
     catchup=False,
     default_args=default_args,
