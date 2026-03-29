@@ -1,0 +1,26 @@
+db:
+  host: ${oc.env:DB_HOST,localhost}
+  port: ${oc.env:DB_PORT,5432}
+  name: ${oc.env:DB_NAME,etl_db}
+  user: ${oc.env:DB_USER,etl}
+  password: ${oc.env:DB_PASSWORD,password}
+  schema: etl
+
+hh_scraper:
+  # Базовый URL каталога вакансий — меняйте на любой /vacancies/<slug>
+  catalog_url: "https://hh.ru/vacancies/voditel"
+  # Дополнительные GET-параметры
+  area: 1              # 1 = Москва; 0 = все регионы
+  items_on_page: 100    # макс 100
+  order_by: "publication_time"   # relevance / publication_time / salary_desc / salary_asc
+  enable_snippets: "true"
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133"
+  request_delay: 1.5   # задержка между страницами (сек)
+
+data_lake:
+  base_path: "./data_lake"
+  compression: "snappy"   # snappy / zstd / lz4 / gzip
+
+logging:
+  level: "DEBUG" # INFO / DEBUG
+  file: "logs/hh_etl.log"

@@ -1,0 +1,31 @@
+# Переменные окружения (содержат пароли)
+.env
+
+# Виртуальные окружения
+.venv/
+.venv-airflow/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Логи
+logs/
+*.log
+
+# Data lake (большие файлы данных)
+data_lake/
+
+# Airflow рабочая директория
+airflow_home/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Временные файлы papermill
+/tmp/hh_etl_outputs/
+
+# OS
+.DS_Store
