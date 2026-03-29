@@ -12,3 +12,5 @@ tqdm>=4.66.0
 notebook>=7.0.0
 ipywidgets>=8.0.0
 papermill>=2.5.0
+# apache-airflow устанавливается отдельно (конфликтует с sqlalchemy>=2.0):
+# pip install apache-airflow
