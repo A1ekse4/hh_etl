@@ -34,7 +34,7 @@ hh_etl/
 ### 1.1 Клонировать репозиторий
 
 ```bash
-git clone <url>
+git clone https://github.com/A1ekse4/hh_etl
 cd hh_etl
 ```
 
